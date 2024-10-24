@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="style16.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            let container1 = document.createElement("div");
+            container1.className = "container1";
+ 
+            let container2 = document.createElement("div");
+            container2.className = "container2";
+ 
+            let container3 = document.createElement("div");
+            container3.className = "container3";
+ 
+            let answers = ["Yes", "No", "Probably", "Might be", "I don't know :("];
+            let answer  = document.createElement("div");
+            answer.className = "answer";
+ 
+            let image = document.createElement("img");
+            image.className = "magic-ball";
+            image.src = "magic_ball.jpg";    
+ 
+            let input = document.createElement("input");
+            input.className = "input";
+            input.type = "text";
+            input.placeholder = "Ask your question...";
+ 
+            container2.appendChild(image);  
+            container3.appendChild(input);
+            container2.appendChild(answer);
+ 
+            container2.addEventListener("click", function() {
+                 if (input.value.trim() !== "") {
+                     let randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+                     answer.innerText = randomAnswer;
+                     answer.style.display = "block";
+                 } else {
+                     alert("Please ask a question!");
+                 }
+            });
+ 
+            container1.appendChild(container2);
+            container1.appendChild(container3);
+            document.body.appendChild(container1);
+ 
+         });
+     </script>
+</head>
+<body>
+</body>
+</html>
